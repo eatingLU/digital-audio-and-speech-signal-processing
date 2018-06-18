@@ -79,9 +79,9 @@ xlabel('l');
 ylabel('amplitude');
 title('Power Spectral Density');
 %% speech enhancement
-sl=wiener_filter(P_NNl, P_YYl_B, ang_Yl, mag_Yl);
-% sl=nonlinear_MMSE(P_NNl, P_YYl_B, Yl);
+% sl=wiener_filter(P_NNl, P_YYl_B, ang_Yl, mag_Yl);
+ sl=nonlinear_MMSE(P_NNl, P_YYl_B, Yl);
 %% overlapping addition
 s_est=overlapadd(sl, N, L, length);
 sound(s_est,Fs);
-% audiowrite('MMSE_result.wav',s_est,Fs);
+audiowrite('MMSE_result.wav',s_est,Fs);
